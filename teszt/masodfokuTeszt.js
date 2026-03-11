@@ -1,0 +1,1 @@
+import { masod } from "module";
