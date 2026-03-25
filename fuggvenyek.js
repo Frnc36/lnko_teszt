@@ -22,9 +22,19 @@ export function szamjegyekOsszege(n) {
   return z;
 }
 
-export function masodfokuX1(a, b, c) {
-  x1 = -b + Math.sqrt(b * b - 4 * a * c);
-  x2 = -b - Math.sqrt(b * b - 4 * a * c);
-  return { x1: x1, x2: x2 };
+export function masodfoku(a, b, c) {
+  const D = b * b - 4 * a * c;
+  if (D > 0) {
+    let x1 = ((-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a)).toFixed(2);
+    let x2 = ((-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a)).toFixed(2);
+   /*  console.log(x1);
+    console.log(x2); */
+    return { x1: x1, x2: x2 };
+  } else if (D === 0) {
+    let x = (-b / 2) * a;
+   /*  console.log(x); */
+    return { x1: x, x2: x };
+  } else {
+    return { x1: "Nincs valós megoldása", x2: "Nincs valós megoldása" };
+  }
 }
-
